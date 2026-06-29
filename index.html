@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#04130f" />
     <meta
       name="description"
-      content="Innove Life — นวัตกรรมเพื่อชีวิต ระบบรีครูทธุรกิจเครือข่ายที่เข้าใจง่าย เห็นโครงสร้างทีม ชั้นรายได้ และจำลองรายได้ได้ทันที"
+      content="Innova Life — นวัตกรรมเพื่อชีวิต ระบบรีครูทธุรกิจเครือข่ายที่เข้าใจง่าย เห็นโครงสร้างทีม ชั้นรายได้ และจำลองรายได้ได้ทันที"
     />
-    <title>Innove Life — นวัตกรรมเพื่อชีวิต | ระบบสร้างทีมและรายได้</title>
+    <title>Innova Life — นวัตกรรมเพื่อชีวิต | ระบบสร้างทีมและรายได้</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,10 +19,17 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- ============ ANIMATED SKY BACKGROUND (3D) ============ -->
+    <div class="sky-bg" aria-hidden="true">
+      <div class="sky-cloud cloud-1"></div>
+      <div class="sky-cloud cloud-2"></div>
+      <div class="sky-cloud cloud-3"></div>
+    </div>
+
     <!-- ============ NAVBAR ============ -->
     <header class="nav" id="nav">
       <div class="nav-inner">
-        <a class="brand" href="#home" aria-label="Innove Life หน้าแรก">
+        <a class="brand" href="#home" aria-label="Innova Life หน้าแรก">
           <span class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 32 32" width="22" height="22">
               <path
@@ -39,18 +46,14 @@
             </svg>
           </span>
           <span class="brand-text">
-            <strong>Innove<span>Life</span></strong>
+            <strong>Innova<span>Life</span></strong>
             <small>นวัตกรรมเพื่อชีวิต</small>
           </span>
         </a>
 
         <nav class="nav-links" aria-label="เมนูหลัก">
-          <a href="#concept">แนวคิด</a>
-          <a href="#network">โครงสร้างทีม</a>
-          <a href="#income">ชั้นรายได้</a>
           <a href="#simulator">จำลองรายได้</a>
-          <a href="#steps">วิธีเริ่ม</a>
-          <a href="#faq">คำถาม</a>
+          <a href="#contact">ติดต่อ</a>
         </nav>
 
         <a class="btn btn-primary nav-cta" href="#contact">เริ่มต้นเลย</a>
@@ -61,438 +64,226 @@
     </header>
 
     <main>
-      <!-- ============ HERO ============ -->
+      <!-- ============ HERO + MATRIX (two-column) ============ -->
       <section class="hero" id="home">
         <div class="hero-glow" aria-hidden="true"></div>
-        <div class="hero-grid">
-          <div class="hero-copy reveal">
-            <span class="pill">
-              <span class="dot"></span> ระบบรีครูทอัจฉริยะ • เข้าใจใน 2 นาที
-            </span>
-            <h1>
-              สร้าง<span class="grad">ทีม</span> สร้าง<span class="grad">รายได้</span>
-            </h1>
-            <div class="hero-cta">
-              <a class="btn btn-primary btn-lg" href="#simulator">ลองจำลองรายได้</a>
-              <a class="btn btn-ghost btn-lg" href="#concept">ดูแนวคิด ↓</a>
-            </div>
-
-            <div class="hero-stats" aria-label="ตัวเลขสำคัญ">
-              <div>
-                <strong data-count="2" data-suffix=" นาที">2 นาที</strong>
-                <span>เข้าใจทั้งระบบ</span>
-              </div>
-              <div>
-                <strong data-count="2" data-suffix=" คน">2 คน</strong>
-                <span>โครงสร้างรายได้</span>
-              </div>
-              <div>
-                <strong data-count="100" data-suffix="%">100%</strong>
-                <span>เห็นตัวเลขจริง</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Live mini network preview -->
+        <div class="hero-matrix-grid">
+          <!-- LEFT: Live network card -->
           <div class="hero-visual reveal">
             <div class="glass-card hero-card">
+              <div class="hero-card-summary">
+                <div class="hero-card-foot">
+                  <div>
+                    <small id="heroTeamLabel">สมาชิก</small>
+                    <b id="heroTeam">0</b>
+                  </div>
+                  <div>
+                    <small id="heroIncomeLabel">ค่าแนะนำ</small>
+                    <b id="heroIncome">฿0</b>
+                  </div>
+                </div>
+                <div class="hero-card-withdraw">
+                  <div class="withdraw-left">
+                    <span class="withdraw-icon">💳</span>
+                    <div class="withdraw-text">
+                      <span class="withdraw-action">กดถอนรายได้ได้ทันที</span>
+                      <small class="withdraw-note">รับเงินเข้าบัญชีวันถัดไป</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="hero-card-head">
-                <span class="tag-live"><span class="dot"></span> LIVE</span>
-                <span class="hero-card-title">โครงสร้างทีมของคุณ</span>
-              </div>
-              <svg id="heroNet" viewBox="0 0 360 280" role="img" aria-label="ตัวอย่างโครงสร้างทีม">
-                <defs>
-                  <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#10b981" />
-                    <stop offset="1" stop-color="#0d9488" />
-                  </linearGradient>
-                  <linearGradient id="heroGradGold" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#fbbf24" />
-                    <stop offset="1" stop-color="#a3e635" />
-                  </linearGradient>
-                </defs>
-                <g id="heroLinks"></g>
-                <g id="heroNodes"></g>
-              </svg>
-              <p class="hero-card-hint">แตะ <b>คน 2</b> เพื่อดูระบบเมทริกโบนัส</p>
-              <div class="hero-card-foot">
-                <div>
-                  <small id="heroTeamLabel">สมาชิกในสายนี้</small>
-                  <b id="heroTeam">2</b>
+                <div class="hero-live-status">
+                  <span class="hero-live-message">ได้สิทธิแนะนำ รับรายได้ 350 บาท/คน</span>
                 </div>
-                <div>
-                  <small id="heroIncomeLabel">รายได้จากสายนี้/เดือน</small>
-                  <b id="heroIncome">฿700</b>
+                <div class="company-sales" aria-hidden="true">
+                  <div class="company-sales-main">
+                    <small>ยอดขายทั้งหมดของบริษัท</small>
+                    <strong id="companySales">฿0</strong>
+                  </div>
+                  <div class="company-share-live">
+                    <span>คำนวณส่วนแบ่ง 1%</span>
+                    <b id="companyShare">฿0</b>
+                  </div>
                 </div>
               </div>
-              <div class="hero-card-withdraw">
-                <span class="withdraw-icon">💳</span>
-                <div class="withdraw-text">
-                  <span>กดถอนรายได้ได้ทันที <b>฿700</b></span>
-                  <small>รับเงินในวันถัดไปทันที</small>
+              <div class="heronet-wrap">
+                <div class="heronet-svg-wrap">
+                  <svg id="heroNet" viewBox="0 0 840 140" role="img" aria-label="ตัวอย่างโครงสร้างทีม">
+                    <defs>
+                      <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#10b981" />
+                        <stop offset="1" stop-color="#0d9488" />
+                      </linearGradient>
+                      <linearGradient id="heroGradGold" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#fbbf24" />
+                        <stop offset="1" stop-color="#a3e635" />
+                      </linearGradient>
+                    </defs>
+                    <g id="heroLinks"></g>
+                    <g id="heroNodes"></g>
+                  </svg>
+                </div>
+                <div class="heronet-controls">
+                  <button class="hero-replay-btn" id="heroReplayBtn" type="button" aria-label="เล่นซ้ำ">
+                    <span class="hrb-icon">▶</span>
+                  </button>
                 </div>
               </div>
               <div id="heroTip" class="hero-tip" role="status" aria-live="polite"></div>
             </div>
           </div>
-        </div>
 
-        <div class="trust-row reveal">
-          <span>โปร่งใส</span><i></i>
-          <span>ทำซ้ำได้</span><i></i>
-          <span>ยืดหยุ่นทำควบคู่งานประจำ</span><i></i>
-          <span>มีระบบและทีมสนับสนุน</span>
-        </div>
-      </section>
-
-      <!-- ============ MATRIX BONUS ============ -->
-      <section class="section matrix-section" id="matrixSection" aria-live="polite">
-        <div class="matrix-section-inner">
-          <div class="glass-card matrix-card" id="matrixCard">
-            <div class="matrix-lock-overlay" id="matrixLock" aria-hidden="true">
-              <div class="matrix-lock-icon">🔒</div>
-              <p>แนะนำครบ <b>3 คน</b><br>เพื่อปลดล็อกเมทริกโบนัส</p>
-            </div>
-            <div class="matrix-card-inner">
-              <div class="matrix-card-head">
-                <span class="matrix-badge">เมทริกโบนัส</span>
-                <span class="matrix-unlocked-tag" id="matrixUnlockedTag">🔓 ปลดล็อกแล้ว!</span>
+          <!-- RIGHT: Matrix bonus card -->
+          <div class="matrix-col reveal" id="matrixSection" aria-live="polite">
+            <div class="glass-card matrix-card" id="matrixCard">
+              <div class="matrix-lock-overlay" id="matrixLock" aria-hidden="true">
+                <div class="matrix-lock-icon">🔒</div>
+                <p>แนะนำครบ <b>3 คน</b><br>เพื่อปลดล็อกเมทริกโบนัส</p>
               </div>
-              <div class="matrix-invest-row">
-                <div class="matrix-invest-item">
-                  <small>ลงทุนครั้งเดียว</small>
-                  <b>฿1,000</b>
+              <div class="matrix-card-inner">
+                <div class="matrix-card-head">
+                  <span class="matrix-badge">เมทริกโบนัส</span>
+                  <span class="matrix-unlocked-tag" id="matrixUnlockedTag">🔓 ปลดล็อกแล้ว!</span>
                 </div>
-                <div class="matrix-invest-arrow">→</div>
-                <div class="matrix-invest-item matrix-invest-get">
-                  <small>เมื่อถึงคิวได้รับ</small>
-                  <b>฿1,500</b>
+                <div class="matrix-invest-row">
+                  <div class="matrix-invest-item">
+                    <small>ลงทุนครั้งเดียว</small>
+                    <b>฿1,000</b>
+                  </div>
+                  <div class="matrix-invest-arrow">→</div>
+                  <div class="matrix-invest-item matrix-invest-get">
+                    <small>เมื่อถึงคิวได้รับ</small>
+                    <b>฿1,500</b>
+                  </div>
                 </div>
+                <div class="matrix-rebirth-row">
+                  <div class="matrix-rebirth-item">
+                    <span class="matrix-rebirth-icon">💰</span>
+                    <span>โบนัสสด <b>฿500</b></span>
+                  </div>
+                  <div class="matrix-rebirth-item">
+                    <span class="matrix-rebirth-icon">📦</span>
+                    <span>สินค้า <b>฿1,000</b></span>
+                  </div>
+                  <div class="matrix-rebirth-item">
+                    <span class="matrix-rebirth-icon">♻️</span>
+                    <span>เกิดใหม่ <b>อัตโนมัติ</b></span>
+                  </div>
+                </div>
+                <div class="matrix-comm-title">รายได้เมื่อทีมเกิดใหม่</div>
+                <div class="matrix-comm-rows">
+                  <div class="matrix-comm-row">
+                    <span class="matrix-comm-level">ชั้น 1</span>
+                    <span class="matrix-comm-people">×10 คน</span>
+                    <span class="matrix-comm-rate">฿350/คน</span>
+                    <span class="matrix-comm-total">= ฿3,500</span>
+                  </div>
+                  <div class="matrix-comm-row">
+                    <span class="matrix-comm-level">ชั้น 2–8</span>
+                    <span class="matrix-comm-people">×10ⁿ คน</span>
+                    <span class="matrix-comm-rate">฿10/คน</span>
+                    <span class="matrix-comm-total muted">สะสม</span>
+                  </div>
+                </div>
+                <div class="matrix-milestones">
+                  <div class="matrix-milestone">
+                    <span class="mm-level">ชั้น 4</span>
+                    <span class="mm-income">฿100,000+</span>
+                  </div>
+                  <div class="matrix-milestone">
+                    <span class="mm-level">ชั้น 5</span>
+                    <span class="mm-income">฿1,000,000+</span>
+                  </div>
+                  <div class="matrix-milestone mm-big">
+                    <span class="mm-level">ชั้น 8</span>
+                    <span class="mm-income">฿1,000,000,000</span>
+                  </div>
+                </div>
+                <p class="matrix-note">ลงทุนครั้งเดียวตลอดชีวิต · ระบบหมุนอัตโนมัติ</p>
               </div>
-              <div class="matrix-rebirth-row">
-                <div class="matrix-rebirth-item">
-                  <span class="matrix-rebirth-icon">💰</span>
-                  <span>โบนัสสด <b>฿500</b></span>
-                </div>
-                <div class="matrix-rebirth-item">
-                  <span class="matrix-rebirth-icon">📦</span>
-                  <span>สินค้า <b>฿1,000</b></span>
-                </div>
-                <div class="matrix-rebirth-item">
-                  <span class="matrix-rebirth-icon">♻️</span>
-                  <span>เกิดใหม่ <b>อัตโนมัติ</b></span>
-                </div>
-              </div>
-              <div class="matrix-comm-title">รายได้เมื่อทีมเกิดใหม่</div>
-              <div class="matrix-comm-rows">
-                <div class="matrix-comm-row">
-                  <span class="matrix-comm-level">ชั้น 1</span>
-                  <span class="matrix-comm-people">×10 คน</span>
-                  <span class="matrix-comm-rate">฿350/คน</span>
-                  <span class="matrix-comm-total">= ฿3,500</span>
-                </div>
-                <div class="matrix-comm-row">
-                  <span class="matrix-comm-level">ชั้น 2–8</span>
-                  <span class="matrix-comm-people">×10ⁿ คน</span>
-                  <span class="matrix-comm-rate">฿10/คน</span>
-                  <span class="matrix-comm-total muted">สะสม</span>
-                </div>
-              </div>
-              <div class="matrix-milestones">
-                <div class="matrix-milestone">
-                  <span class="mm-level">ชั้น 4</span>
-                  <span class="mm-income">฿100,000+</span>
-                </div>
-                <div class="matrix-milestone">
-                  <span class="mm-level">ชั้น 5</span>
-                  <span class="mm-income">฿1,000,000+</span>
-                </div>
-                <div class="matrix-milestone mm-big">
-                  <span class="mm-level">ชั้น 8</span>
-                  <span class="mm-income">฿1,000,000,000</span>
-                </div>
-              </div>
-              <p class="matrix-note">ลงทุนครั้งเดียวตลอดชีวิต · ระบบหมุนอัตโนมัติ</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ============ CONCEPT / คนกลาง ============ -->
-      <section class="section" id="concept">
+      <!-- ============ MATRIX TABLE ============ -->
+      <section class="section" id="matrixTable">
         <div class="section-head reveal">
-          <span class="eyebrow">แนวคิดหลัก</span>
-          <h2>ทำไมต้อง “ตัดคนกลาง”</h2>
-          <p class="section-sub">
-            ในการขายแบบเดิม กำไรถูกแบ่งให้คนกลางหลายชั้นกว่าจะถึงผู้บริโภค
-            Innove Life ส่งคุณค่านั้นกลับมาให้ “คนที่บอกต่อ” แทน
-          </p>
+          <p class="section-sub"><strong>Matrix Bonus</strong> ครบ 3 ช่อง รับโบนัสทันที <b class="hl-bonus">฿1,500</b></p>
         </div>
-
-        <div class="compare reveal">
-          <article class="compare-card old">
-            <header><span class="badge badge-muted">แบบเดิม</span><h3>กำไรหายไปกับคนกลาง</h3></header>
-            <ul class="chain">
-              <li><span>โรงงาน</span><b>ต้นทุน</b></li>
-              <li><span>ตัวแทนใหญ่</span><b>+ มาร์จิ้น</b></li>
-              <li><span>ค้าส่ง</span><b>+ มาร์จิ้น</b></li>
-              <li><span>ค้าปลีก</span><b>+ มาร์จิ้น</b></li>
-              <li class="end"><span>ผู้บริโภค</span><b>จ่ายแพง</b></li>
-            </ul>
-            <p class="compare-note">ยิ่งผ่านมือหลายชั้น ราคายิ่งสูง และผู้บริโภคไม่ได้อะไรกลับ</p>
-          </article>
-
-          <div class="compare-arrow" aria-hidden="true">
-            <svg viewBox="0 0 60 60" width="44" height="44">
-              <path d="M10 30h36m0 0-12-12m12 12-12 12" fill="none" stroke="url(#leaf)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-
-          <article class="compare-card neo">
-            <header><span class="badge">Innove Life</span><h3>ส่งคุณค่าให้คนบอกต่อ</h3></header>
-            <ul class="chain">
-              <li><span>โรงงาน / แบรนด์</span><b>ต้นทุน</b></li>
-              <li class="highlight"><span>คุณ + ทีม</span><b>รับส่วนแบ่ง</b></li>
-              <li class="end good"><span>ผู้บริโภค</span><b>ได้ของดี ราคาเป็นธรรม</b></li>
-            </ul>
-            <p class="compare-note">
-              งบที่เคยจ่ายให้คนกลาง กลายเป็น<strong>รายได้ของคุณและทีม</strong>
-              — นี่คือหัวใจของธุรกิจเครือข่าย
-            </p>
-          </article>
-        </div>
-
-        <div class="concept-points reveal">
-          <article class="point">
-            <span class="point-ic">🤝</span>
-            <h4>บอกต่อ ไม่ใช่ขายของหนัก</h4>
-            <p>แชร์สิ่งที่ดี เมื่อมีคนใช้ตามคุณ คุณได้ส่วนแบ่งจากยอดที่เกิดขึ้น</p>
-          </article>
-          <article class="point">
-            <span class="point-ic">🌱</span>
-            <h4>สร้างครั้งเดียว ต่อยอดได้</h4>
-            <p>เมื่อทีมทำซ้ำระบบเดียวกัน รายได้จะมาจากทีม ไม่ใช่แรงคุณคนเดียว</p>
-          </article>
-          <article class="point">
-            <span class="point-ic">📈</span>
-            <h4>รายได้เป็นชั้น</h4>
-            <p>คุณได้จากยอดของตัวเอง และเปอร์เซ็นต์จากทีมในแต่ละชั้นที่คุณสร้าง</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ NETWORK STRUCTURE ============ -->
-      <section class="section section-dark" id="network">
-        <div class="section-head reveal">
-          <span class="eyebrow eyebrow-light">โครงสร้างทีม</span>
-          <h2>จากคนเดียว สู่ทีมที่ทำงานแทนคุณ</h2>
-          <p class="section-sub">
-            เลื่อนทีละขั้นเพื่อดูว่าทำไม “การสอนให้ทีมชวนต่อ” ถึงสำคัญกว่าการชวนเองคนเดียว
-          </p>
-        </div>
-
-        <div class="network-wrap reveal">
-          <div class="whiteboard">
-            <div class="wb-stepper">
-              <button class="icon-btn" id="prevStep" type="button" aria-label="ย้อนขั้นตอน">‹</button>
-              <div class="wb-progress"><span id="stepBar"></span></div>
-              <span id="stepText">1 / 5</span>
-              <button class="icon-btn" id="nextStep" type="button" aria-label="ขั้นตอนถัดไป">›</button>
+        <div class="matrix-table-wrap reveal">
+          <div class="matrix-table-grid">
+            <div class="matrix-table-cell mtc-you">
+              <div class="mtc-aura"></div>
+              <span class="mtc-icon">🧑</span>
+              <span class="mtc-label">คุณ</span>
             </div>
-
-            <svg id="networkSvg" viewBox="0 0 920 540" role="img" aria-labelledby="netTitle netDesc">
-              <title id="netTitle">แผนภาพทีมธุรกิจเครือข่าย</title>
-              <desc id="netDesc">วงกลมกลางคือคุณ เชื่อมไปยังผู้สมัครตรงและทีมชั้นถัดไป พร้อมเปอร์เซ็นต์รายได้แต่ละชั้น</desc>
-              <defs>
-                <linearGradient id="nodeGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#10b981" />
-                  <stop offset="1" stop-color="#0d9488" />
-                </linearGradient>
-                <linearGradient id="nodeGradGold" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#fbbf24" />
-                  <stop offset="1" stop-color="#a3e635" />
-                </linearGradient>
-                <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
-                  <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#022c22" flood-opacity="0.45" />
-                </filter>
-              </defs>
-              <g id="linkLayer"></g>
-              <g id="nodeLayer"></g>
-            </svg>
+            <div class="matrix-plus-sep" aria-hidden="true">+</div>
+            <div class="matrix-table-cell">
+              <span class="mtc-icon">🧑</span>
+              <span class="mtc-label">ช่องที่ 1</span>
+              <span class="mtc-status filled">มีสมาชิกแล้ว</span>
+            </div>
+            <div class="matrix-table-cell">
+              <span class="mtc-icon">🧑</span>
+              <span class="mtc-label">ช่องที่ 2</span>
+              <span class="mtc-status filled">มีสมาชิกแล้ว</span>
+            </div>
+            <div class="matrix-table-cell empty" id="mtcSlot3">
+              <span class="mtc-icon">➕</span>
+              <span class="mtc-label">ช่องที่ 3</span>
+              <span class="mtc-status waiting">รอสมาชิก</span>
+            </div>
           </div>
+          <button type="button" class="matrix-table-footer" id="matrixBonusTrigger" aria-label="ดูรายละเอียดโบนัส 1%">
+            <div class="mtf-bonus-row">
+              <span class="mtf-live-dot"></span>
+              <span class="mtf-bonus-label">รอรับโบนัส</span>
+              <span class="mtf-bonus-amount">฿1,500</span>
+            </div>
+            <div class="mtf-count-row">
+              มีสมาชิกรอรับแล้ว&nbsp;<b id="matrixWaitCount" data-count="847" data-suffix=" คน">0 คน</b>
+            </div>
+          </button>
 
-          <aside class="network-detail">
-            <article class="detail-card is-active" data-step="0">
-              <span class="step-no">01</span>
-              <h3>เริ่มจากตัวคุณ</h3>
-              <p>ตั้งต้นที่ผู้แนะนำ 1 คน อธิบายภาพรวมว่ารายได้ไม่ได้มาจากการขายครั้งเดียว แต่มาจากการสร้างทีมที่ทำซ้ำได้</p>
-            </article>
-            <article class="detail-card" data-step="1">
-              <span class="step-no">02</span>
-              <h3>ชวนตรงเป็นแกนแรก</h3>
-              <p>คนที่คุณชวนตรงคือฐานสำคัญ ทุกคนสามารถต่อยอดเป็นทีมของตัวเองได้ — นี่คือ “ชั้นที่ 1” ของรายได้คุณ</p>
-            </article>
-            <article class="detail-card" data-step="2">
-              <span class="step-no">03</span>
-              <h3>สอนให้เขาชวนต่อ</h3>
-              <p>หัวใจไม่ใช่ชวนให้มากที่สุดคนเดียว แต่ทำให้แต่ละคนมีขั้นตอนพูด แนะนำ และติดตามที่นำไปทำซ้ำได้</p>
-            </article>
-            <article class="detail-card" data-step="3">
-              <span class="step-no">04</span>
-              <h3>รายได้มาจากยอดทีม</h3>
-              <p>เปอร์เซ็นต์แต่ละชั้นถูกคิดจากยอดรวมของทีม ยิ่งทีมลึกและกว้าง โครงสร้างรายได้ยิ่งมั่นคง</p>
-            </article>
-            <article class="detail-card" data-step="4">
-              <span class="step-no">05</span>
-              <h3>ปิดด้วยภาพใหญ่</h3>
-              <p>เมื่อผู้สมัครเห็นทีม รายได้ และขั้นตอนทำซ้ำครบ เขาจะเข้าใจว่านี่คือ “ระบบ” ไม่ใช่การขายเฉพาะหน้า</p>
-            </article>
-          </aside>
+          <!-- Re-Buy cycle explainer -->
+          <div class="rebuy-box">
+            <h4 class="rebuy-title">♻️ ระบบ Re-Buy หมุนเวียนรายได้</h4>
+            <div class="rebuy-steps">
+              <div class="rebuy-step">
+                <span class="rebuy-num">1</span>
+                <p><b>รับโบนัส 1,500</b></p>
+              </div>
+              <div class="rebuy-arrow">→</div>
+              <div class="rebuy-step">
+                <span class="rebuy-num">2</span>
+                <p><b>ซื้อสินค้าซ้ำ 1,000</b></p>
+              </div>
+              <div class="rebuy-arrow">→</div>
+              <div class="rebuy-step">
+                <span class="rebuy-num">3</span>
+                <p><b>รักษาสถานะสมาชิก</b></p>
+              </div>
+              <div class="rebuy-arrow">→</div>
+              <div class="rebuy-step">
+                <span class="rebuy-num">4</span>
+                <p><b>500 สะสมถอนได้</b></p>
+              </div>
+            </div>
+            <p class="rebuy-note">วงจรหมุนต่อเนื่อง — ทุกครั้งที่เกิดใหม่ ทั้งสายงานได้รับรายได้ซ้ำ</p>
+          </div>
         </div>
       </section>
 
-      <!-- ============ INCOME TIERS ============ -->
-      <section class="section" id="income">
-        <div class="section-head reveal">
-          <span class="eyebrow">โครงสร้างรายได้</span>
-          <h2>รายได้ 5 ทาง + ชั้นยศที่เติบโตไปกับคุณ</h2>
-          <p class="section-sub">
-            ตัวเลขด้านล่างเป็น <strong>ตัวอย่างการคำนวณเพื่ออธิบาย</strong>
-            ใช้เปอร์เซ็นต์ชุดเดียวกับเครื่องจำลองด้านล่าง
-          </p>
-        </div>
 
-        <!-- income streams -->
-        <div class="streams reveal">
-          <article class="stream">
-            <div class="stream-top"><span class="stream-ic">🛍️</span><b class="stream-pct">25%</b></div>
-            <h4>กำไรขายปลีก</h4>
-            <p>ส่วนต่างจากการใช้/ขายสินค้าด้วยตัวคุณเอง รับทันทีต่อรอบ</p>
-          </article>
-          <article class="stream">
-            <div class="stream-top"><span class="stream-ic">①</span><b class="stream-pct">8%</b></div>
-            <h4>โบนัสทีมชั้น 1</h4>
-            <p>เปอร์เซ็นต์จากยอดของคนที่คุณชวนตรง</p>
-          </article>
-          <article class="stream">
-            <div class="stream-top"><span class="stream-ic">②</span><b class="stream-pct">5%</b></div>
-            <h4>โบนัสทีมชั้น 2</h4>
-            <p>เปอร์เซ็นต์จากยอดของทีมที่ทีมคุณชวนต่อ</p>
-          </article>
-          <article class="stream">
-            <div class="stream-top"><span class="stream-ic">③</span><b class="stream-pct">3%</b></div>
-            <h4>โบนัสทีมชั้น 3</h4>
-            <p>เปอร์เซ็นต์จากยอดทีมในชั้นลึกที่ทำซ้ำต่อ</p>
-          </article>
-          <article class="stream stream-accent">
-            <div class="stream-top"><span class="stream-ic">👑</span><b class="stream-pct">+ โบนัส</b></div>
-            <h4>โบนัสบริหาร & ตำแหน่ง</h4>
-            <p>โบนัสแมตชิ่งและรางวัลตามชั้นยศเมื่อทีมโตขึ้น</p>
-          </article>
-        </div>
-
-        <!-- rank ladder -->
-        <h3 class="rank-title reveal">ชั้นยศ (Rank) ตามขนาดทีม</h3>
-        <div class="ranks reveal">
-          <article class="rank" data-rank="0">
-            <span class="rank-ic">🌱</span>
-            <h4>Starter</h4>
-            <p class="rank-req">ยอดทีม &lt; ฿20,000</p>
-            <p class="rank-income">~ ฿500–1,800 / เดือน</p>
-          </article>
-          <article class="rank" data-rank="1">
-            <span class="rank-ic">🚀</span>
-            <h4>Builder</h4>
-            <p class="rank-req">ยอดทีม ฿20,000+</p>
-            <p class="rank-income">~ ฿2,000–6,000 / เดือน</p>
-          </article>
-          <article class="rank" data-rank="2">
-            <span class="rank-ic">⭐</span>
-            <h4>Leader</h4>
-            <p class="rank-req">ยอดทีม ฿60,000+</p>
-            <p class="rank-income">~ ฿6,000–15,000 / เดือน</p>
-          </article>
-          <article class="rank" data-rank="3">
-            <span class="rank-ic">💎</span>
-            <h4>Director</h4>
-            <p class="rank-req">ยอดทีม ฿150,000+</p>
-            <p class="rank-income">~ ฿15,000–40,000 / เดือน</p>
-          </article>
-          <article class="rank" data-rank="4">
-            <span class="rank-ic">👑</span>
-            <h4>Innovator</h4>
-            <p class="rank-req">ยอดทีม ฿400,000+</p>
-            <p class="rank-income">~ ฿40,000 ขึ้นไป / เดือน</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ SIMULATOR ============ -->
+      <!-- ============ TEAM + INCOME SIMULATOR (merged) ============ -->
       <section class="section section-soft" id="simulator">
-        <div class="section-head reveal">
-          <span class="eyebrow">เครื่องมือ</span>
-          <h2>จำลองรายได้ของคุณแบบเรียลไทม์</h2>
-          <p class="section-sub">ลากแถบเลื่อนเพื่อดูว่าโครงสร้างทีมแบบไหน ให้รายได้ประมาณเท่าไร</p>
-        </div>
-
         <div class="sim reveal">
-          <!-- controls -->
-          <div class="sim-controls glass-card">
-            <div class="sim-head">
-              <h3>ปรับสมมติฐาน</h3>
-              <span class="scenario" id="scenarioLabel">กำลังขยายทีม</span>
-            </div>
-
-            <label class="range-field">
-              <span class="rf-label">คนที่คุณชวนตรง</span>
-              <strong><output id="directOut">4</output> คน</strong>
-              <input id="directInput" type="range" min="1" max="8" value="4" />
-            </label>
-
-            <label class="range-field">
-              <span class="rf-label">แต่ละคนชวนต่อโดยเฉลี่ย</span>
-              <strong><output id="dupOut">3</output> คน</strong>
-              <input id="dupInput" type="range" min="1" max="4" value="3" />
-            </label>
-
-            <label class="range-field">
-              <span class="rf-label">ยอดเฉลี่ยต่อคน / เดือน</span>
-              <strong>฿<output id="ticketOut">2,000</output></strong>
-              <input id="ticketInput" type="range" min="500" max="6000" step="100" value="2000" />
-            </label>
-
-            <div class="sim-rank">
-              <span>ชั้นยศที่คาดว่าจะถึง</span>
-              <strong id="rankBadge">Leader</strong>
-            </div>
-          </div>
-
-          <!-- results -->
+          <!-- depth tree result -->
           <div class="sim-results">
-            <div class="result-cards">
-              <div class="result-card">
-                <small>ทีมรวม</small>
-                <strong id="teamTotal">52</strong>
-                <span>คน</span>
-              </div>
-              <div class="result-card">
-                <small>ยอดทีม / เดือน</small>
-                <strong id="volumeTotal">104,000</strong>
-                <span>บาท</span>
-              </div>
-              <div class="result-card highlight">
-                <small>รายได้ประมาณ / เดือน</small>
-                <strong id="incomeTotal">6,580</strong>
-                <span>บาท</span>
-              </div>
-            </div>
-
             <div class="glass-card breakdown">
-              <div class="bd-head">
-                <h4>รายได้แยกตามชั้น</h4>
-                <span class="muted-note">เปอร์เซ็นต์ตามตารางด้านบน</span>
-              </div>
-              <div class="bar-chart" id="barChart" aria-label="กราฟรายได้แต่ละชั้น"></div>
+              <div id="depthTree" class="depth-tree"></div>
             </div>
 
             <p class="disclaimer">
@@ -500,101 +291,64 @@
               ไม่ใช่การรับประกันรายได้ ผลลัพธ์จริงขึ้นอยู่กับความตั้งใจ การทำซ้ำของทีม
               และเงื่อนไขจริงของบริษัท
             </p>
-            <a class="btn btn-primary btn-lg sim-cta" href="#contact">ฉันสนใจเริ่มสร้างทีม →</a>
+          </div>
+
+          <!-- controls -->
+          <div class="sim-controls glass-card">
+            <div class="sim-heading">
+              <h2 class="sim-title">จำลองการเติบโตแบบทบกำลัง G1–G8</h2>
+              <p class="sim-subtitle">ลากแถบเลื่อนเพื่อดูโครงสร้างทีมและรายได้แต่ละชั้นแบบเรียลไทม์</p>
+            </div>
+            <div class="sim-body">
+              <div class="sim-sliders">
+                <div class="sim-head">
+                  <span class="scenario" id="scenarioLabel">กำลังขยายทีม</span>
+                </div>
+                <label class="range-field">
+                  <span class="rf-label">คนที่คุณชวนตรง (G1)</span>
+                  <strong><output id="directOut">10</output> คน</strong>
+                  <input id="directInput" type="range" min="1" max="100" value="10" />
+                </label>
+                <label class="range-field">
+                  <span class="rf-label">แต่ละคนชวนต่อโดยเฉลี่ย</span>
+                  <strong><output id="dupOut">10</output> คน</strong>
+                  <input id="dupInput" type="range" min="1" max="20" value="10" />
+                </label>
+              </div>
+              <div class="result-cards">
+                <div class="result-card">
+                  <small>สมาชิกรวม G1–G8</small>
+                  <strong id="teamTotal">0</strong>
+                  <span>คน</span>
+                </div>
+                <div class="result-card highlight">
+                  <small>รายได้รวมโดยประมาณ</small>
+                  <strong id="incomeTotal">0</strong>
+                  <span>บาท</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ============ STEPS / SCRIPT ============ -->
-      <section class="section" id="steps">
-        <div class="section-head reveal">
-          <span class="eyebrow">วิธีเริ่ม</span>
-          <h2>4 ขั้นตอนชวนคน ที่ใครก็ทำตามได้</h2>
-          <p class="section-sub">ใช้เว็บนี้เป็นตัวช่วยอธิบาย แล้วทำตามบทพูดด้านล่างทีละข้อ</p>
-        </div>
-
-        <ol class="steps reveal">
-          <li class="step-item">
-            <span class="step-badge">1</span>
-            <div>
-              <h4>เปิดบทสนทนา</h4>
-              <p class="script">“ถ้ามีระบบที่ช่วยให้เราสร้างรายได้จากทีมได้ โดยไม่ต้องทำทุกอย่างคนเดียว อยากดูภาพรวมสั้น ๆ ไหม?”</p>
-            </div>
-          </li>
-          <li class="step-item">
-            <span class="step-badge">2</span>
-            <div>
-              <h4>เปิดเว็บ วาดภาพให้เห็น</h4>
-              <p class="script">เลื่อนให้ดูส่วน “โครงสร้างทีม” เริ่มจากวงกลมกลางคือเขา แล้วแตกเป็นทีม ให้เห็นว่าทุกคนทำซ้ำได้</p>
-            </div>
-          </li>
-          <li class="step-item">
-            <span class="step-badge">3</span>
-            <div>
-              <h4>ให้เขาลองจำลองรายได้เอง</h4>
-              <p class="script">เปิด “จำลองรายได้” แล้วให้เขาลากแถบเลื่อนเอง การได้กดเองทำให้เข้าใจและเชื่อมากกว่าให้เราพูด</p>
-            </div>
-          </li>
-          <li class="step-item">
-            <span class="step-badge">4</span>
-            <div>
-              <h4>ชวนตัดสินใจ</h4>
-              <p class="script">“อยากเริ่มจากทดลองใช้ระบบก่อน หรืออยากให้ผมช่วยวาง 3 รายชื่อแรกของทีมคุณเลย?”</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-
-      <!-- ============ FAQ ============ -->
-      <section class="section section-soft" id="faq">
-        <div class="section-head reveal">
-          <span class="eyebrow">คำถามที่พบบ่อย</span>
-          <h2>เคลียร์ทุกข้อสงสัยก่อนเริ่ม</h2>
-        </div>
-
-        <div class="faq reveal">
-          <details class="faq-item">
-            <summary>ต้องมีประสบการณ์ขายมาก่อนไหม?<span class="faq-plus">+</span></summary>
-            <p>ไม่จำเป็น ระบบนี้ออกแบบให้คนทั่วไปทำตามได้ มีเว็บช่วยอธิบาย มีบทพูด และมีทีมรุ่นพี่คอยสนับสนุน</p>
-          </details>
-          <details class="faq-item">
-            <summary>รายได้การันตีหรือเปล่า?<span class="faq-plus">+</span></summary>
-            <p>ไม่มีการรับประกันรายได้ ตัวเลขในเว็บเป็นเพียงตัวอย่างการคำนวณ รายได้จริงขึ้นกับความตั้งใจและการทำซ้ำของทีมคุณ</p>
-          </details>
-          <details class="faq-item">
-            <summary>ต้องใช้เวลาเยอะไหม ทำควบคู่งานประจำได้?<span class="faq-plus">+</span></summary>
-            <p>ยืดหยุ่นมาก เริ่มจากวันละ 1–2 ชั่วโมงได้ หลายคนเริ่มจากงานเสริมก่อนแล้วค่อยขยายเมื่อทีมเริ่มโต</p>
-          </details>
-          <details class="faq-item">
-            <summary>ถ้าชวนคนไม่เก่งจะทำได้ไหม?<span class="faq-plus">+</span></summary>
-            <p>ได้ เพราะหน้าที่ของคุณคือ “แชร์เว็บนี้” แล้วให้ระบบช่วยอธิบาย ไม่ต้องพูดเก่ง ขอแค่ทำซ้ำตามขั้นตอน</p>
-          </details>
-          <details class="faq-item">
-            <summary>เริ่มต้นยังไง?<span class="faq-plus">+</span></summary>
-            <p>กดปุ่ม “เริ่มต้นเลย” แล้วทักมาทาง LINE หรือกรอกฟอร์มด้านล่าง ทีมงานจะติดต่อกลับเพื่อเริ่มวางทีม 3 รายชื่อแรกให้คุณ</p>
-          </details>
-        </div>
-      </section>
 
       <!-- ============ CTA / CONTACT ============ -->
-      <section class="section section-dark cta" id="contact">
+      <section class="section cta" id="contact">
         <div class="cta-inner reveal">
           <div class="cta-copy">
             <span class="eyebrow eyebrow-light">พร้อมเริ่มแล้ว?</span>
-            <h2>เริ่มสร้างทีมแรกของคุณกับ Innove Life</h2>
-            <p>
-              ทิ้งข้อมูลไว้ แล้วทีมงานจะติดต่อกลับเพื่อพาคุณเริ่ม วางรายชื่อแรก
-              และสอนใช้ระบบรีครูทนี้แบบฟรี ไม่มีข้อผูกมัด
-            </p>
+            <h2>เริ่มสร้างทีมแรกของคุณกับ InnovaLife</h2>
+            <p>พิมพ์ข้อมูลไว้ แล้วทีมงานจะติดต่อกลับ<br>เพื่อพาคุณเริ่มทำและสอนใช้ระบบฟรี ไม่มีข้อผูกมัด</p>
+          </div>
+
+          <div class="cta-right">
             <div class="cta-quick">
-              <!-- แก้เป็น LINE / เบอร์จริงของคุณได้ที่ app.js หรือ href ด้านล่าง -->
               <a class="btn btn-line btn-lg" id="lineBtn" href="https://line.me/" target="_blank" rel="noopener">
                 <span class="line-ic">💬</span> ทักผ่าน LINE
               </a>
               <a class="btn btn-ghost btn-lg" id="callBtn" href="tel:0000000000">📞 โทรเลย</a>
             </div>
-          </div>
-
           <form class="cta-form glass-card" id="leadForm" novalidate>
             <h3>ให้เราติดต่อกลับ</h3>
             <label>
@@ -616,6 +370,7 @@
             <button class="btn btn-primary btn-lg" type="submit">ส่งข้อมูล</button>
             <p class="form-status" id="formStatus" role="status"></p>
           </form>
+          </div>
         </div>
       </section>
     </main>
@@ -624,18 +379,16 @@
     <footer class="footer">
       <div class="footer-inner">
         <div class="footer-brand">
-          <strong>Innove<span>Life</span></strong>
-          <p>นวัตกรรมเพื่อชีวิต — ระบบสร้างทีมและรายได้ที่อธิบายตัวเองได้</p>
+          <strong>Innova<span>Life</span></strong>
+          <p>นวัตกรรมเพื่อชีวิต</p>
         </div>
         <nav class="footer-nav" aria-label="ลิงก์ส่วนท้าย">
-          <a href="#concept">แนวคิด</a>
-          <a href="#income">ชั้นรายได้</a>
           <a href="#simulator">จำลองรายได้</a>
           <a href="#contact">ติดต่อ</a>
         </nav>
       </div>
       <p class="footer-fine">
-        © <span id="yr">2026</span> Innove Life. ตัวเลขรายได้ทั้งหมดเป็นตัวอย่างเพื่อการอธิบาย ไม่ใช่การรับประกันรายได้
+        © <span id="yr">2026</span> Innova Life. ตัวเลขรายได้ทั้งหมดเป็นตัวอย่างเพื่อการอธิบาย ไม่ใช่การรับประกันรายได้
       </p>
     </footer>
 
